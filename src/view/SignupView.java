@@ -54,6 +54,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         //      a CLEAR_BUTTON_LABEL constant which is defined in the SignupViewModel class.
         //      You need to add this "clear" button to the "buttons" panel.
         clear = new JButton(SignupViewModel.CLEAR_BUTTON_LABEL);
+        buttons.add(clear);
 
         signUp.addActionListener(
                 // This creates an anonymous subclass of ActionListener and instantiates it.
@@ -78,8 +79,12 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         clear.addActionListener(
                 new ActionListener() {
                     @Override
-                    public void actionPerformed(ActionEvent e) {
-
+                    public void actionPerformed(ActionEvent evt) {
+                        String deleteUserNames = usernameInputField.getText();
+                        usernameInputField.setText("");
+                        passwordInputField.setText("");
+                        repeatPasswordInputField.setText("");
+                        JOptionPane.showMessageDialog(SignupView.this, deleteUserNames);
                     }
                 }
         );

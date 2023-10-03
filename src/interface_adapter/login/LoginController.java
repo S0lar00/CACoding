@@ -7,9 +7,9 @@ import use_case.signup.SignupInputData;
 
 public class LoginController {
 
-    final LoginInputBoundary loginUseCaseInteractor;
-    public LoginController(LoginInputBoundary loginUseCaseInteractor) {
-        this.loginUseCaseInteractor = loginUseCaseInteractor;
+    final LoginInputBoundary loginUseCaseInteractors;
+    public LoginController(LoginInputBoundary loginUseCaseInteractors) {
+        this.loginUseCaseInteractors = loginUseCaseInteractors;
     }
 
 
@@ -17,6 +17,6 @@ public class LoginController {
         LoginInputData loginInputData = new LoginInputData(
                 username, password);
 
-        loginUseCaseInteractor.execute(loginInputData);
+        loginUseCaseInteractors.execute(loginInputData);
     }
 }
